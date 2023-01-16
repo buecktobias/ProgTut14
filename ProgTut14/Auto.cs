@@ -62,6 +62,21 @@ public class Auto
     {
         return $"Das Auto hat: {nameof(_motor)}: {_motor}, {nameof(PS)}: {PS}";
     }
+
+    public override bool Equals(object? obj)
+    {
+        if (obj is null or not Auto)
+        {
+            return false;
+        }
+        Auto auto = (obj as Auto)!;
+        return GetAutotyp() == auto.GetAutotyp() && Math.Abs(PS - auto.PS) < 0.1;
+    }
+
+    public override int GetHashCode()
+    {
+        return GetAutotyp().GetHashCode() + PS.GetHashCode();
+    }
 }
 
 public class WrongKraftstoffException: InvalidOperationException{}

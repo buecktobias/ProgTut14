@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System.Collections;
 using ProgTut14;
 
 
@@ -30,3 +31,11 @@ catch (WrongKraftstoffException _)
 
 Console.WriteLine($"Mercedes ist ein {mercedes.GetAutotyp()}");
 Console.WriteLine($"Tesla ist ein {tesla.GetAutotyp()}");
+
+
+Console.WriteLine($"Sind tesla und mercedes gleich? {Equals(mercedes, tesla)}");
+
+Console.WriteLine("Hash of mercedes" + mercedes.GetHashCode());
+Console.WriteLine("Hash of tesla " + tesla.GetHashCode());
+
+Console.WriteLine("Zwei gleiche Autos " + new Auto(new BenzinMotor(20)).GetHashCode() +"  " + new Auto(new BenzinMotor(20)).GetHashCode());
